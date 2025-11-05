@@ -67,89 +67,6 @@
             border-bottom: 1px solid var(--accent);
         }
         
-        .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Bangers', cursive;
-    font-size: 1.8rem;
-    background: var(--heading-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.logo-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* Mobile Navigation */
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.mobile-nav {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    background: rgba(12, 26, 39, 0.98);
-    backdrop-filter: blur(20px);
-    z-index: 2000;
-    transition: left 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-}
-
-.mobile-nav.active {
-    left: 0;
-}
-
-.mobile-nav a {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.mobile-nav a:hover {
-    color: var(--accent);
-}
-
-.close-menu {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .mobile-menu-btn {
-        display: block;
-    }
-}
-
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -160,12 +77,22 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-family: 'Bangers', cursive;
             font-size: 1.8rem;
             background: var(--heading-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .nav-links {
@@ -182,6 +109,60 @@
 
         .nav-links a:hover {
             color: var(--accent);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(12, 26, 39, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: left 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -266,58 +247,41 @@
             margin-bottom: 50px;
         }
 
-.video-container {
-        position: relative;
-        width: 100%;
-        max-width: 800px;
-        height: 400px;
-        border-radius: 15px;
-        overflow: hidden;
-        margin: 0 auto;
-        border: 2px solid var(--accent);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    .video-container video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-   .video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    color: var(--accent);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: opacity 0.4s ease;
-    opacity: 1;
-}
-
-.video-overlay.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-    .video-container:hover .video-overlay {
-        opacity: 1;
-    }
-
-    @media (max-width: 768px) {
         .video-container {
-            height: 250px;
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 2px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
-    }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .video-container {
+                height: 250px;
+            }
+        }
+
         /* Sections */
         .section {
             padding: 100px 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-title {
@@ -362,17 +326,13 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .why-icon {
-            font-size: 3rem;
+        .why-icon-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 20px;
         }
-        .why-icon-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 0px solid var(--accent);
-}
 
         /* Tokenomics */
         .tokenomics-grid {
@@ -466,91 +426,36 @@
         }
 
         .community-icon {
-            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
         }
-.community-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    max-width: 600px;
-    margin: 0 auto;
-}
 
-.community-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 30px;
-    background: rgba(0, 207, 255, 0.1);
-    border: 2px solid var(--accent);
-    border-radius: 12px;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.3s ease;
-    flex: 1;
-    min-width: 200px;
-    max-width: 250px;
-}
+        .community-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
 
-.community-card:hover {
-    background: var(--accent);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 207, 255, 0.3);
-}
+        .community-info {
+            text-align: left;
+            flex: 1;
+        }
 
-.community-card:hover .community-name,
-.community-card:hover .community-cta {
-    color: var(--bg-top);
-}
+        .community-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
 
-.community-icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-}
+        .community-cta {
+            font-size: 0.9rem;
+            color: var(--accent);
+            transition: color 0.3s ease;
+        }
 
-.community-icon svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-}
-
-.community-info {
-    text-align: left;
-    flex: 1;
-}
-
-.community-name {
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: var(--text);
-    transition: color 0.3s ease;
-}
-
-.community-cta {
-    font-size: 0.9rem;
-    color: var(--accent);
-    transition: color 0.3s ease;
-}
-
-/* Responsive Community Section */
-@media (max-width: 768px) {
-    .community-section {
-        padding: 60px 20px;
-    }
-    
-    .community-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .community-card {
-        width: 100%;
-        max-width: 300px;
-    }
-}
         /* Documents */
         .doc-buttons {
             display: flex;
@@ -577,11 +482,11 @@
             scroll-behavior: smooth;
             gap: 20px;
             padding: 20px 0;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
 
         .gallery-scroll::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Edge */
+            display: none;
         }
 
         .gallery-item {
@@ -590,26 +495,13 @@
             height: 200px;
             border-radius: 8px;
             border: 2px solid var(--accent);
-            background: rgba(0, 207, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
+            object-fit: cover;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
         }
 
         .gallery-item:hover {
             transform: translateY(-5px);
-        }
-
-        .gallery-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
         }
 
         /* Disclaimer */
@@ -698,10 +590,95 @@
             color: rgba(244, 238, 220, 0.7);
         }
 
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(12, 26, 39, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            backdrop-filter: blur(10px);
+        }
+
+        .popup-content {
+            background: rgba(18, 42, 62, 0.95);
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            margin: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: popupAppear 0.3s ease-out;
+        }
+
+        @keyframes popupAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .popup-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .popup-content h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 2rem;
+            background: var(--heading-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .popup-content p {
+            font-size: 1.2rem;
+            color: var(--text);
+            margin-bottom: 30px;
+        }
+
+        .popup-btn {
+            background: var(--accent);
+            color: var(--bg-top);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .popup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 207, 255, 0.4);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
             }
             
             .hero {
@@ -721,44 +698,61 @@
                 padding: 80px 20px;
             }
             
-            .video-placeholder {
-                height: 250px;
+            .community-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .community-card {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
 </head>
 <body>
-<!-- Header -->
-<header>
-    <div class="nav-container">
-        <div class="logo">
-            <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/image05.png" alt="Naked Crab Club" class="logo-img">
-            <span>Naked Crab Club</span>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/image05.png" alt="Naked Crab Club" class="logo-img">
+                <span>Naked Crab Club</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-links">
+                <a href="#story">Story</a>
+                <a href="#why">Why $CRAB</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#community">Community</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn">☰</button>
         </div>
-        
-        <!-- Desktop Navigation -->
-        <nav class="nav-links">
-            <a href="#story">Story</a>
-            <a href="#why">Why $CRAB</a>
-            <a href="#tokenomics">Tokenomics</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#community">Community</a>
-        </nav>
-        
-        <!-- Mobile Menu Button -->
-        <button class="mobile-menu-btn">☰</button>
-    </div>
-</header>
+    </header>
 
-<!-- Mobile Navigation -->
-<div class="mobile-nav" id="mobileNav">
-    <button class="close-menu">×</button>
-    <a href="#story" onclick="closeMobileNav()">Story</a>
-    <a href="#why" onclick="closeMobileNav()">Why $CRAB</a>
-    <a href="#tokenomics" onclick="closeMobileNav()">Tokenomics</a>
-    <a href="#roadmap" onclick="closeMobileNav()">Roadmap</a>
-    <a href="#community" onclick="closeMobileNav()">Community</a>
-</div>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="close-menu">×</button>
+        <a href="#story">Story</a>
+        <a href="#why">Why $CRAB</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#community">Community</a>
+    </div>
+
+    <!-- Video Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <img src="https://i.supaimg.com/7bfd77f4-a087-423f-bf16-318af2712fb6.jpg" alt="Naked Crab Man" class="popup-image">
+            <h3>Brace yourself…</h3>
+            <p>you're entering $CRAB territory.</p>
+            <button class="popup-btn" id="diveInBtn">Dive In</button>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -778,114 +772,103 @@
             <div class="contract-address">
                 <strong>Contract Address (CA):</strong> Coming soon
             </div>
+            
             <h2>$CRAB</h2>
             <p>Lore video</p>
-<div class="video-container">
-    <video id="heroVideo" autoplay muted loop playsinline>
-        <source src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/main/InShot_20251105_131332036.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Overlay (for unmute prompt) -->
-    <div class="video-overlay" id="overlay">
-        <p>▶</p>
-    </div>
-</div>
+            
+            <div class="video-container">
+                <video id="heroVideo" muted loop playsinline>
+                    <source src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/main/InShot_20251105_131332036.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
     </section>
 
-<!-- Story Section -->
-<section id="story" class="section">
-    <div class="container">
-        <h2 class="section-title">The Genesis of a Legend</h2>
-        <div class="story-content">
-            <h3 style="color: var(--accent); font-size: 1.8rem; margin-bottom: 30px; text-align: center;">
-                THE MOST UNDERVALUED FURIE ARTIFACT
-            </h3>
-            
-            <p style="font-size: 1.2rem; margin-bottom: 25px;">
-                <strong>$CRAB</strong> represents the forgotten cornerstone of the Furie universe, an original Matt Furie creation that chronologically predates the iconic $PEPE artwork itself. While the world celebrated the frog, the true progenitor remained hidden in the archives, waiting for its moment.
-            </p>
-            
-            <p style="font-size: 1.2rem; margin-bottom: 25px;">
-                Historical evidence places The Naked Crab Man as one of Furie's earliest digital creations, a piece of internet archaeology that embodies the raw, unfiltered creativity that would later define an entire genre of digital art and culture.
-            </p>
-            
-            <p style="font-size: 1.2rem; margin-bottom: 25px;">
-                Today, as $PEPE, $BRETT, and $ANDY dominate the cultural conversation, the market overlooks the authentic origin piece. The crab emerged first, but the digital landscape wasn't prepared for its revolutionary potential.
-            </p>
-            
-            <p style="font-size: 1.2rem; margin-bottom: 40px; font-style: italic; color: var(--accent); text-align: center;">
-                $CRAB transcends meme status, it represents the resurrection of authentic digital folklore and the reclamation of internet history.
-            </p>
-
-            <div style="text-align: center; margin: 40px 0;">
-                <img src="https://i.supaimg.com/9efbc039-80ee-47de-8b1f-80ad3fbf0d57.jpg" alt="Historical Naked Crab Artwork" style="max-width: 100%; border-radius: 15px; border: 2px solid var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-            </div>
-
-            <h4 style="color: var(--accent); text-align: center; margin: 50px 0 30px; font-size: 1.4rem;">
-                THE CRAB IS CRAWLING BACK TO THE TOP<br>
-                <span style="color: var(--text); font-size: 1.1rem;">AND THIS TIME, IT'S UNSTOPPABLE</span>
-            </h4>
-
-<!-- Historical Artifact Card -->
-<div style="background: rgba(18, 42, 62, 0.9); border: 2px solid var(--accent); border-radius: 15px; padding: 30px; margin: 50px 0; text-align: center;">
-    <div style="margin-bottom: 25px;">
-        <img src="https://i.supaimg.com/581c213d-4fbc-4298-9149-5453e867a190.png" alt="Matt Furie Archive Reference" style="width: 100%; max-width: 300px; border-radius: 10px; border: 1px solid var(--accent); margin-bottom: 20px;">
-    </div>
-    
-    <div style="text-align: center; margin-bottom: 25px;">
-        <h4 style="color: var(--accent); margin-bottom: 15px; font-size: 1.3rem;">Historical Documentation</h4>
-        <p style="margin-bottom: 20px; font-size: 1.1rem;">
-            <strong>Original Artwork by Matt Furie</strong><br>
-            Verified creation from the Furie digital archive
-        </p>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-            <a href="https://mattfurie.com/" class="btn btn-primary" style="padding: 12px 25px; font-size: 1rem;" target="_blank">
-                View Matt's Archive
-            </a>
-            <a href="https://en.wikipedia.org/wiki/Matt_Furie" class="btn btn-secondary" style="padding: 12px 25px; font-size: 1rem;" target="_blank">
-                Read Matt's Story
-            </a>
-        </div>
-    </div>
-    
-    <div style="border-top: 1px solid rgba(0, 207, 255, 0.3); padding-top: 25px;">
-        <p style="font-style: italic; color: rgba(244, 238, 220, 0.8); font-size: 1rem;">
-            "The resurgence of $CRAB represents more than a market movement, it's a cultural correction, restoring the proper historical narrative of digital art evolution."
-        </p>
-    </div>
-</div>
-                </div>
+    <!-- Story Section -->
+    <section id="story" class="section">
+        <div class="container">
+            <h2 class="section-title">The Genesis of a Legend</h2>
+            <div class="story-content">
+                <h3 style="color: var(--accent); font-size: 1.8rem; margin-bottom: 30px; text-align: center;">
+                    THE MOST UNDERVALUED FURIE ARTIFACT
+                </h3>
                 
-                <div style="border-top: 1px solid rgba(0, 207, 255, 0.3); padding-top: 25px;">
-                    <p style="font-style: italic; color: rgba(244, 238, 220, 0.8); font-size: 1rem;">
-                        "The resurgence of $CRAB represents more than a market movement, it's a cultural correction, restoring the proper historical narrative of digital art evolution."
+                <p style="font-size: 1.2rem; margin-bottom: 25px;">
+                    <strong>$CRAB</strong> represents the forgotten cornerstone of the Furie universe—an original Matt Furie creation that chronologically predates the iconic $PEPE artwork itself. While the world celebrated the frog, the true progenitor remained hidden in the archives, waiting for its moment.
+                </p>
+                
+                <p style="font-size: 1.2rem; margin-bottom: 25px;">
+                    Historical evidence places The Naked Crab Man as one of Furie's earliest digital creations, a piece of internet archaeology that embodies the raw, unfiltered creativity that would later define an entire genre of digital art and culture.
+                </p>
+                
+                <p style="font-size: 1.2rem; margin-bottom: 25px;">
+                    Today, as $PEPE, $BRETT, and $ANDY dominate the cultural conversation, the market overlooks the authentic origin piece. The crab emerged first, but the digital landscape wasn't prepared for its revolutionary potential.
+                </p>
+                
+                <p style="font-size: 1.2rem; margin-bottom: 40px; font-style: italic; color: var(--accent); text-align: center;">
+                    $CRAB transcends meme status—it represents the resurrection of authentic digital folklore and the reclamation of internet history.
+                </p>
+
+                <div style="text-align: center; margin: 40px 0;">
+                    <img src="https://i.supaimg.com/9efbc039-80ee-47de-8b1f-80ad3fbf0d57.jpg" alt="Historical Naked Crab Artwork" style="max-width: 100%; border-radius: 15px; border: 2px solid var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                </div>
+
+                <h4 style="color: var(--accent); text-align: center; margin: 50px 0 30px; font-size: 1.4rem;">
+                    THE CRAB IS CRAWLING BACK TO THE TOP<br>
+                    <span style="color: var(--text); font-size: 1.1rem;">AND THIS TIME, IT'S UNSTOPPABLE</span>
+                </h4>
+
+                <!-- Historical Artifact Card -->
+                <div style="background: rgba(18, 42, 62, 0.9); border: 2px solid var(--accent); border-radius: 15px; padding: 30px; margin: 50px 0; text-align: center;">
+                    <div style="margin-bottom: 25px;">
+                        <img src="https://i.supaimg.com/581c213d-4fbc-4298-9149-5453e867a190.png" alt="Matt Furie Archive Reference" style="width: 100%; max-width: 300px; border-radius: 10px; border: 1px solid var(--accent); margin-bottom: 20px;">
+                    </div>
+                    
+                    <div style="text-align: center; margin-bottom: 25px;">
+                        <h4 style="color: var(--accent); margin-bottom: 15px; font-size: 1.3rem;">Historical Documentation</h4>
+                        <p style="margin-bottom: 20px; font-size: 1.1rem;">
+                            <strong>Original Artwork by Matt Furie</strong><br>
+                            Verified creation from the Furie digital archive
+                        </p>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                            <a href="https://mattfurie.com/" class="btn btn-primary" style="padding: 12px 25px; font-size: 1rem;" target="_blank">
+                                View Matt's Archive
+                            </a>
+                            <a href="https://en.wikipedia.org/wiki/Matt_Furie" class="btn btn-secondary" style="padding: 12px 25px; font-size: 1rem;" target="_blank">
+                                Read Matt's Story
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div style="border-top: 1px solid rgba(0, 207, 255, 0.3); padding-top: 25px;">
+                        <p style="font-style: italic; color: rgba(244, 238, 220, 0.8); font-size: 1rem;">
+                            "The resurgence of $CRAB represents more than a market movement—it's a cultural correction, restoring the proper historical narrative of digital art evolution."
+                        </p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="font-size: 1.3rem; color: var(--accent); font-weight: 600;">
+                        The Comeback of the Digital Century Begins Here
                     </p>
                 </div>
             </div>
-
-            <div style="text-align: center; margin-top: 40px;">
-                <p style="font-size: 1.3rem; color: var(--accent); font-weight: 600;">
-                    The Comeback of the Digital Century Begins Here
-                </p>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Why Section -->
     <section id="why" class="section" style="background: rgba(0, 207, 255, 0.05);">
         <div class="container">
             <h2 class="section-title">Why $CRAB?</h2>
             <div class="why-grid">
-<div class="why-card">
-    <div class="why-icon">
-        <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/image05.png" alt="Crab Icon" class="why-icon-img">
-    </div>
-    <h3>First Furie Revival</h3>
-    <p>The first Furie-inspired meme revival to launch fairly on Solana.</p>
-</div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/image05.png" alt="Crab Icon" class="why-icon-img">
+                    </div>
+                    <h3>First Furie Revival</h3>
+                    <p>The first Furie-inspired meme revival to launch fairly on Solana.</p>
+                </div>
                 <div class="why-card">
                     <div class="why-icon">👥</div>
                     <h3>100% Community-Owned</h3>
@@ -996,30 +979,26 @@
                 Be part of the $CRAB movement — where culture meets innovation:
             </p>
             <div class="community-grid">
-      <!-- Telegram -->
-      <a class="community-card" href="https://t.me/THENAKEDCRABMAN" target="_blank" rel="noopener noreferrer">
-        <div class="community-icon" aria-hidden="true">
-          <!-- Telegram SVG -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 72C183 72 72 183 72 320C72 457 183 568 320 568C457 568 568 457 568 320C568 183 457 72 320 72zM435 240.7C431.3 279.9 415.1 375.1 406.9 419C403.4 437.6 396.6 443.8 390 444.4C375.6 445.7 364.7 434.9 350.7 425.7C328.9 411.4 316.5 402.5 295.4 388.5C270.9 372.4 286.8 363.5 300.7 349C304.4 345.2 367.8 287.5 369 282.3C369.2 281.6 369.3 279.2 367.8 277.9C366.3 276.6 364.2 277.1 362.7 277.4C360.5 277.9 325.6 300.9 258.1 346.5C248.2 353.3 239.2 356.6 231.2 356.4C222.3 356.2 205.3 351.4 192.6 347.3C177.1 342.3 164.7 339.6 165.8 331C166.4 326.5 172.5 322 184.2 317.3C256.5 285.8 304.7 265 328.8 255C397.7 226.4 412 221.4 421.3 221.2C423.4 221.2 427.9 221.7 430.9 224.1C432.9 225.8 434.1 228.2 434.4 230.8C434.9 234 435 237.3 434.8 240.6z"/></svg>
-        </div>
-        <div class="community-info">
-          <div class="community-name">Telegram</div>
-          <div class="community-cta">Join Chat</div>
-        </div>
-      </a>
+                <a class="community-card" href="https://t.me/THENAKEDCRABMAN" target="_blank" rel="noopener noreferrer">
+                    <div class="community-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 72C183 72 72 183 72 320C72 457 183 568 320 568C457 568 568 457 568 320C568 183 457 72 320 72zM435 240.7C431.3 279.9 415.1 375.1 406.9 419C403.4 437.6 396.6 443.8 390 444.4C375.6 445.7 364.7 434.9 350.7 425.7C328.9 411.4 316.5 402.5 295.4 388.5C270.9 372.4 286.8 363.5 300.7 349C304.4 345.2 367.8 287.5 369 282.3C369.2 281.6 369.3 279.2 367.8 277.9C366.3 276.6 364.2 277.1 362.7 277.4C360.5 277.9 325.6 300.9 258.1 346.5C248.2 353.3 239.2 356.6 231.2 356.4C222.3 356.2 205.3 351.4 192.6 347.3C177.1 342.3 164.7 339.6 165.8 331C166.4 326.5 172.5 322 184.2 317.3C256.5 285.8 304.7 265 328.8 255C397.7 226.4 412 221.4 421.3 221.2C423.4 221.2 427.9 221.7 430.9 224.1C432.9 225.8 434.1 228.2 434.4 230.8C434.9 234 435 237.3 434.8 240.6z"/></svg>
+                    </div>
+                    <div class="community-info">
+                        <div class="community-name">Telegram</div>
+                        <div class="community-cta">Join Chat</div>
+                    </div>
+                </a>
 
-      <!-- X (Twitter) -->
-      <a class="community-card" href="https://x.com/THENAKEDCRABMAN" target="_blank" rel="noopener noreferrer">
-        <div class="community-icon" aria-hidden="true">
-          <!-- X SVG -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z"/></svg>
-        </div>
-        <div class="community-info">
-          <div class="community-name">X (Twitter)</div>
-          <div class="community-cta">Follow</div>
-        </div>
-      </a>
-    </div>
+                <a class="community-card" href="https://x.com/THENAKEDCRABMAN" target="_blank" rel="noopener noreferrer">
+                    <div class="community-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z"/></svg>
+                    </div>
+                    <div class="community-info">
+                        <div class="community-name">X (Twitter)</div>
+                        <div class="community-cta">Follow</div>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1034,21 +1013,21 @@
         </div>
     </section>
 
-<!-- Gallery Section -->
-<section class="gallery-section">
-    <div class="container">
-        <h2>Gallery</h2>
-        <div class="gallery-container">
-            <div class="gallery-scroll">
-                <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251101_183837.jpg" alt="Gallery Image 1" class="gallery-item">
-                <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251102_001755.jpg" alt="Gallery Image 2" class="gallery-item">
-                <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251102_154721.jpg" alt="Gallery Image 3" class="gallery-item">
-                <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251102_154729.jpg" alt="Gallery Image 4" class="gallery-item">
-                <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251102_154827.jpg" alt="Gallery Image 5" class="gallery-item">
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-scroll">
+                    <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251101_183837.jpg" alt="Gallery Image 1" class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251102_001755.jpg" alt="Gallery Image 2" class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251102_154721.jpg" alt="Gallery Image 3" class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251102_154729.jpg" alt="Gallery Image 4" class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/peace-dapps/CRABPNG/refs/heads/main/20251102_154827.jpg" alt="Gallery Image 5" class="gallery-item">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Disclaimer -->
     <section class="section">
@@ -1087,64 +1066,97 @@
     </footer>
 
     <script>
-    
-    // Mobile Navigation
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileNav = document.getElementById('mobileNav');
-const closeMenuBtn = document.querySelector('.close-menu');
+        // Mobile Navigation
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNav = document.getElementById('mobileNav');
+        const closeMenuBtn = document.querySelector('.close-menu');
 
-function openMobileNav() {
-    mobileNav.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
+        function openMobileNav() {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-function closeMobileNav() {
-    mobileNav.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
+        function closeMobileNav() {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
 
-mobileMenuBtn.addEventListener('click', openMobileNav);
-closeMenuBtn.addEventListener('click', closeMobileNav);
+        mobileMenuBtn.addEventListener('click', openMobileNav);
+        closeMenuBtn.addEventListener('click', closeMobileNav);
 
-// Close mobile nav when clicking on links
-document.querySelectorAll('.mobile-nav a').forEach(link => {
-    link.addEventListener('click', closeMobileNav);
-});
+        // Close mobile nav when clicking on links
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
 
-        // Simple scroll animation
+        // Scroll animation for sections
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Video and Popup functionality - FIXED VERSION
+        const video = document.getElementById("heroVideo");
+        const popupOverlay = document.getElementById("popupOverlay");
+        const diveInBtn = document.getElementById("diveInBtn");
+
+        // Show popup when page loads
+        window.addEventListener('load', () => {
+            const hasSeenPopup = sessionStorage.getItem('hasSeenPopup');
+            
+            if (!hasSeenPopup) {
+                setTimeout(() => {
+                    popupOverlay.style.display = 'flex';
+                    sessionStorage.setItem('hasSeenPopup', 'true');
+                }, 1000);
+            } else {
+                // If they've seen it before, auto-play video muted
+                video.muted = true;
+                video.play().catch(error => {
+                    console.log('Auto-play failed:', error);
+                });
+            }
+        });
+
+        // INSTANT response when clicking Dive In
+        diveInBtn.addEventListener('click', () => {
+            // Immediately hide popup
+            popupOverlay.style.display = 'none';
+            
+            // Start video playing (unmuted)
+            video.muted = false;
+            video.currentTime = 0;
+            
+            // Play video without waiting for promise
+            video.play().catch(error => {
+                console.log('Video play failed:', error);
             });
         });
 
-        // Add fade-in animation to sections
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'all 0.6s ease';
-            observer.observe(section);
+        // Fallback: if user clicks outside popup content, close it
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) {
+                popupOverlay.style.display = 'none';
+                // Start video muted as fallback
+                video.muted = true;
+                video.play().catch(console.error);
+            }
         });
-        
-        // video
-        
-  const video = document.getElementById("heroVideo");
-  const overlay = document.getElementById("overlay");
 
-  // Play muted immediately
-  video.play();
-
-  // On user interaction (click/tap), unmute and restart
-  overlay.addEventListener("click", () => {
-    overlay.classList.add("hidden");
-    video.muted = false;
-    video.currentTime = 0;
-    video.play();
-  });
-</script>
+        // Also allow video click to unmute
+        video.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false;
+                video.play().catch(console.error);
+            }
+        });
     </script>
 </body>
 </html>
